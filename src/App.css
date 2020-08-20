@@ -2,13 +2,3 @@
 .App {
   text-align: center;
 }
-
-
-.pokegallery{
-  
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: space-between;
-    margin: 10px;
-}

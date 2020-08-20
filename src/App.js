@@ -3,7 +3,6 @@ import PokemonCard from './components/pokemon-card';
 import AppBar from './components/nav-bar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import './App.css';
 
@@ -13,12 +12,6 @@ function App() {
   const [load, setLoad] = React.useState('true');
   const arr = [];
 
-  const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-    },
-  });
-  const classes = useStyles();
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon/?limit=50')
       .then((response) => response.json())
@@ -39,13 +32,14 @@ function App() {
     <CssBaseline />
     <AppBar/>
     <Container>
+    {console.log(poke)}
     <Grid container spacing={3} style={{marginTop: '1rem'}}>
         {load ? (
           <p>Loading...</p>
         ) : (
             poke.map((pokemon) => (
-              <Grid key={pokemon.id} item s={12} sm={3}>
-                <PokemonCard item  pokemon={pokemon} id={pokemon.id} classes={classes}/>
+              <Grid key={pokemon.id} item xs={12} sm={12} md={6} lg={3}>
+                <PokemonCard item  pokemon={pokemon} id={pokemon.id}/>
               </Grid>
             ))
           )}
