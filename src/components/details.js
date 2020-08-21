@@ -6,6 +6,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,8 +24,10 @@ export default function Details(props) {
     const { pokemonId } = props;
     const [result, setResult] = React.useState([]);
     const [move, setMove] = React.useState([]);
+    const [detail, setDetail] = React.useState([]);
     const [load, setLoad] = React.useState('true');
     const arr = [];
+    const arr1 = [];
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
@@ -40,12 +43,10 @@ export default function Details(props) {
         setLoad(false);
     }, 1000);
 
-
-
     return (
-        <DialogContent dividers className={classes.root}>
+        <DialogContent dividers className={classes.root} style={{width:"350px"}}>
         {load ? (
-          <p>Loading...</p>
+            <CircularProgress/>
         ) : (move.map((move, index) => (
             <Accordion key={index}>
                 <AccordionSummary
