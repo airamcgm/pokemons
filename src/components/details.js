@@ -27,7 +27,7 @@ export default function Details(props) {
     const arr = [];
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon/1')
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
             .then((response) => response.json())
             .then((data) => setResult(
                 data.moves.map((item) => {
@@ -44,7 +44,6 @@ export default function Details(props) {
 
     return (
         <DialogContent dividers className={classes.root}>
-        {console.log(move)}
         {load ? (
           <p>Loading...</p>
         ) : (move.map((move, index) => (
@@ -68,20 +67,3 @@ export default function Details(props) {
         </DialogContent>
     );
 }
-
-/*<Accordion key={index}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
-                    <Typography className={classes.heading}></Typography>
-                    <Typography className={classes.secondaryHeading}>I am an accordion</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>*/

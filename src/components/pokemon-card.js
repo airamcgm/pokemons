@@ -60,7 +60,7 @@ export default function PokemonCard(props) {
         <Card className={classes.root} onClick={handleClickOpen}>
             <CardActionArea>
                 <Typography variant="h5" component="h2" style={{marginTop:'1rem', textTransform:'capitalize'}}>
-                    {pokemon.name}
+                    {pokemon.id}. {pokemon.name}
                 </Typography>
                 <img src={pokemon.sprites.front_default} alt='pokemon' />
             </CardActionArea>
